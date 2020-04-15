@@ -1,4 +1,4 @@
-FROM apache
+FROM httpd
 
 LABEL info="this document is only and example of a dockerfile with multi arguments"
 

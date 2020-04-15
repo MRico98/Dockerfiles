@@ -1,0 +1,22 @@
+FROM apache
+
+LABEL info="this document is only and example of a dockerfile with multi arguments"
+
+RUN useradd newuser
+
+WORKDIR /usr/local/apache2/
+
+COPY . /htdocs/
+
+ENV key docker
+
+EXPOSE 80
+
+USER newuser
+
+RUN whoami
+
+VOLUME .
+
+#The CMD could be empty, in this case doestn matter
+CMD ["/usr/sbin/apache2ctl", "-DFOREGROUND"]
